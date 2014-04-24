@@ -26,12 +26,11 @@
 typedef void (*t_fct)(void); // typdef for function pointer
 
 // typedef for the linked list of command lines
-typedef struct s_cmd {
+typedef struct t_cmd {
   char name[CMD_NAME_MAX_LENGTH + 1];
   t_fct fct;
-  struct s_cmd *next;
+  struct t_cmd *next;
 };
-typedef struct s_cmd t_cmd; 
 
 
 class Cli{
