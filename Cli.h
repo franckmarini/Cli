@@ -19,11 +19,14 @@
 //        with a 'LF' char for a New Line ('CR' char is ignored).
 // ------------------------------------------------------------------------------------------------------
 
+#ifndef CLI_H
+#define CLI_H
+
 #include "HardwareSerial.h"
 
 #define CMD_NAME_MAX_LENGTH 8
 
-typedef void (*t_fct)(void); // typdef for function pointer
+typedef void (*t_fct)(void); // typedef for function pointer
 
 // typedef for the linked list of command lines
 typedef struct t_cmd {
@@ -111,3 +114,5 @@ class Cli{
     }
 };
 
+
+#endif // CLI_H
