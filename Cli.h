@@ -44,6 +44,17 @@ class Cli{
     // Constructor
     Cli(HardwareSerial& serial) : _serial(serial) { _cmdList = NULL;}
 
+    // Destructor
+    ~Cli()
+    {
+      t_cmd *current, *next;
+      for (current = _cmdList; current; current = next)
+      {
+        next = current->next;
+        delete(current);
+      }
+    }
+
     // RegisterCmd() function
     // Allow the user to register a new user command
     // Return an error (-1) when :
