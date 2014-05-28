@@ -1,6 +1,6 @@
 #include <Cli.h>
 
-Cli cli = Cli(&Serial);
+Cli cli = Cli(Serial);
 
 void FunctionHello(void) {Serial.println("\"functionHello\" is being executed!");}
 void FunctionByebye(void) {Serial.println("\"functionByebye\" is being executed!");}

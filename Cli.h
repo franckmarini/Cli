@@ -37,13 +37,12 @@ typedef struct t_cmd {
 
 
 class Cli{
-    HardwareSerial *_serial; // serial interface to be used
+    HardwareSerial& _serial; // serial interface to be used
     t_cmd *_cmdList;  // linked list of commands
 
   public :
     // Constructor
-    Cli(HardwareSerial *serial) {_serial = serial; _cmdList = NULL;}
-
+    Cli(HardwareSerial& serial) : _serial(serial) { _cmdList = NULL;}
 
     // RegisterCmd() function
     // Allow the user to register a new user command
@@ -90,9 +89,9 @@ class Cli{
     t_cmd *current;
     unsigned char i;
 
-      while (_serial->available() > 0)
+      while (_serial.available() > 0)
       {
-        newChar = _serial->read();
+        newChar = _serial.read();
         if (newChar == '\r') continue; // ignore CR chars
         if (newChar == '\n') 
         { 
